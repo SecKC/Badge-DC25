@@ -1,0 +1,45 @@
+Badge BOM
+
+PCB				Seeed Fusion				4.00
+Switch			DigiKey						.50
+Lipo Connector	DigiKey						.16
+Female Headers	SparkFun					3.00
+Oled			NewEgg/China				5.50
+ESP32 Thing		DigiKey						19.95
+Lanyard			Lanyards for all			2.50
+Lipo			xxx							(7.00)
+Buttons			sparkfun					1.25
+											------
+											43.86
+
+
+
+
+
+
+
+
+
+
+
+On Off Switch - https://www.digikey.com/product-detail/en/EG1213/EG1906-ND/101735?WT.mc_id=IQ_7595_G_pla101735&wt.srch=1&wt.medium=cpc&&gclid=CjwKEAjwr_rIBRDJzq-Z-LC_2HgSJADoL57H2oEogJitullIAajXW2Q5gOgxdUahY-SLzEw1SfXg9xoCj9Lw_wcB
+
+Lipo Connector -  https://www.digikey.com/product-detail/en/jst-sales-america-inc/S2B-PH-K-S(LF)(SN)/455-1719-ND/926626
+
+Female headers
+1. https://www.sparkfun.com/products/115?_ga=2.163844607.1333216352.1495253702-127753071.1494297406
+2. https://www.newegg.com/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=female+header+10+pin&N=-1&isNodeId=1
+
+OLED - I2c IIC Serial Oled LCD LED Module
+1. https://www.aliexpress.com/item/Free-shipping-1Pcs-128X64-OLED-LCD-LED-Display-Module-white-For-Arduino-0-96-I2C-IIC/32671702306.html?spm=2114.10010108.1000023.4.f31VvG (2.61)
+2. https://www.newegg.com/Product/Product.aspx?Item=9SIAAZM4K91701 (5.44)
+
+button - https://www.sparkfun.com/products/97
+
+SparkFun ESP32 Thing
+1. https://www.sparkfun.com/products/13907 (17.95) 25+
+2. https://www.digikey.com/product-detail/en/sparkfun-electronics/DEV-13907/1568-1444-ND/6419476 (19.95)
+
+Lipo Battery - ????
+
+Lanyards - https://www.customlanyards4all.com/double-ended-lanyards/woven-double-ended-lanyards-detail 
