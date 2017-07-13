@@ -557,8 +557,8 @@ void drawBling()
       if((millis() - imageTimer >= 6001) && (millis() - imageTimer <= 8000)){
         oled.drawBitmap(DCP,1024);
       }
-      if(imageTimer >= 8001){
-        long imageTimer = millis();
+      if(millis() - imageTimer >= 8001){
+        imageTimer = millis();
       }
     }
 }
