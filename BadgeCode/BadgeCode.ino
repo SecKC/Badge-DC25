@@ -411,7 +411,7 @@ void wifiOn(){
   oled.putString ("Wifi ON");
   oled.setTextXY (2,2);
   oled.putString (ssid);
-  WiFi.softAP(ssid, NULL, 1, 0, 1);
+  WiFi.softAP(ssid, NULL, 1, 0);
   wifiStatus = 1;
   delay (2000);
   settingsMenu();
