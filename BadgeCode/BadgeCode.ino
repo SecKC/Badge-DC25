@@ -201,26 +201,37 @@ void drawBling()
     if (debug == 1){
       Serial.println ("Draw Bling Called");
     }
-    int repeat = 1;
-    long imageTimer = millis();
+    bool repeat = true;
+    unsigned long currentTime = millis();
+    long transitionTime = millis() + 2000L; //cycle in two secs
     digitalWrite(ledPin, LOW); //LED is OFF
     oled.clearDisplay();  // clear the display SecKC DefCon Bitmap
-    while (repeat > 0) {
-      if(millis() - imageTimer <= 2000)
-      {
-        oled.drawBitmap(SecKCFuzzy,1024);
+    //array of bitmaps
+    unsigned char* bitmaps[] = {SecKCFuzzy, BobSmall, DCXXV, DCP};
+    // take the total size of the array, divide by the size of an array element
+    // then subtract one to convert it to a zero-based index
+    int numBitmaps = (sizeof(bitmaps) / sizeof(unsigned char*)) -1;
+    int bitmapIndex = 0;
+    while (repeat) { // todo - exit on button press
+      if (currentTime <= transitionTime) { // we got time to burn
+        currentTime = millis();
+        oled.drawBitmap(bitmaps[bitmapIndex], 1024); //re-draw the image
+      } else { // time to change the image
+        currentTime = millis();
+        transitionTime = millis() + 2000L;
+        if (bitmapIndex < numBitmaps) {
+          bitmapIndex = bitmapIndex + 1;
+        } else {
+          bitmapIndex = 0; // reset the index
+        }
+        oled.drawBitmap(bitmaps[bitmapIndex], 1024);
       }
-      if((millis() - imageTimer >= 2001) && (millis() - imageTimer <= 4000)){
-        oled.drawBitmap(BobSmall,1024);
-      }
-      if((millis() - imageTimer >= 4001) && (millis() - imageTimer <= 6000)){
-        oled.drawBitmap(DCXXV,1024);
-      }
-      if((millis() - imageTimer >= 6001) && (millis() - imageTimer <= 8000)){
-        oled.drawBitmap(DCP,1024);
-      }
-      if(millis() - imageTimer >= 8001){
-        imageTimer = millis();
+      // check for button press to exit to main menu
+      debounceButtonLeft.update();
+      debounceButtonLeft.read();
+      if (debounceButtonLeft.fell()) {
+        repeat = false;
+        returnToMenu(1);
       }
     }
 }
@@ -411,7 +422,7 @@ void wifiOn(){
   oled.putString ("Wifi ON");
   oled.setTextXY (2,2);
   oled.putString (ssid);
-  WiFi.softAP(ssid, NULL, 1, 0, 1);
+  WiFi.softAP(ssid, NULL, 1, 0);
   wifiStatus = 1;
   delay (2000);
   settingsMenu();
